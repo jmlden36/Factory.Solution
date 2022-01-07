@@ -1,0 +1,46 @@
+@using Factory.Models;
+@model Factory.Models.Location
+
+<h2>Location Details</h2>
+<h3>Location Name: @Html.DisplayFor(model => model.LocationName)</h3>
+
+@if (@Model.Machines.Count == 0)
+{
+  <p>This factory doesn't have any machines</p>
+}
+else
+{
+  <h4>Machines</h4>
+  <ul>
+    @foreach(Machine machine in Model.Machines)
+    {
+      <li>@Html.ActionLink($"{@machine.Model}: {machine.Description}", "Details", "Machines", new { id = machine.MachineId })</li>
+    }
+  </ul>
+}
+
+@if (@Model.Engineers.Count == 0)
+{
+  <p>This factory doesn't have any engineers</p>
+}
+else
+{
+  <h4>The @Html.DisplayFor(model => model.LocationName) engineer team</h4>
+  <ul>
+    @foreach (Engineer engineer in Model.Engineers)
+    {
+      <li>@Html.ActionLink($"{@engineer.Name}: {engineer.StartDate}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Edit location", "Edit", new { id = Model.LocationId })</p>
+<p>@Html.ActionLink("Delete location", "Delete", new {id = Model.LocationId })</p>
+
+<div id=con>
+  <div id="stats">
+    <h4>Total number of engineers at the @Html.DisplayFor(model => model.LocationName) location: @Html.DisplayFor(model => model.Engineers.Count)</h4>
+    <h4>Total number of machines at the @Html.DisplayFor(model => model.LocationName) location: @Html.DisplayFor(model => model.Machines.Count)</h4>
+    <h4>Total number of completed repair tickets by engineers at the @Html.DisplayFor(model => model.LocationName) location: @Html.Display("CompletedCount")</h4>
+  </div>
+</div>

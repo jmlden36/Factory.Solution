@@ -37,6 +37,21 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult Edit(int id)
+    {
+      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "LocationName");
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Engineer engineer)
+    {
+      _db.Entry(engineer).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = engineer.EngineerId });
+    }
+
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
@@ -48,14 +63,14 @@ namespace Factory.Controllers
 
     public ActionResult Delete(int id)
     {
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(member => member.EngineerId == id);
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(member => member.EngineerId == id);
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       _db.Engineers.Remove(thisEngineer);
       _db.SaveChanges();
       return RedirectToAction("Index");

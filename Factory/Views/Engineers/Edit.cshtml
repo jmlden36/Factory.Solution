@@ -1,0 +1,19 @@
+@model Factory.Models.Engineer
+
+<h4>Edit this engineer: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new {@required="required"})
+
+  @Html.LabelFor(model => model.StartDate)
+  @Html.TextBoxFor(model => model.StartDate, new {@type="date", @required="required"})
+
+  @Html.Label("Select location")
+  @Html.DropDownList("LocationId")
+
+  <button class="btn" type="submit">Edit engineer</button>
+}

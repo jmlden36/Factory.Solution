@@ -1,0 +1,33 @@
+@model Factory.Models.Engineer
+
+<h2>Engineer Details</h2>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.StartDate): @Html.DisplayFor(model => model.StartDate)</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This engineer is not signed up for any machines</p>
+}
+else
+{
+  <h4>Machines to repair</h4>
+  
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      @if (join.Complete)
+      {
+        <li>@join.Machine.Model</li>
+      }
+    }
+  </ul>
+}
+
+<p class="bottom-link">@Html.ActionLink("See All Machines", "Details", new { id = Model.EngineerId })</p>
+<p class="bottom-link">@Html.ActionLink("Add Machine", "AddMachine", new { id = Model.EngineerId })</p>
+</br>
+</br>
+</br>
+
+<p class="bottom-link">@Html.ActionLink("Edit engineer", "Edit", new { id = Model.EngineerId })</p>
+<p class="bottom-link">@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId })</p>

@@ -1,0 +1,5 @@
+@model Factory.Models.Engineer
+
+<h1>Unable to add @Html.DisplayFor(model => model.Name) to the repair ticket for this machine: engineer is already assigned to repair this machine or completed the repair.</h1>
+
+<p>@Html.ActionLink("Back to engineer details", "Details", new { id = Model.EngineerId })</p>

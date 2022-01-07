@@ -1,0 +1,8 @@
+@model Factory.Models.Engineer
+
+<h2>Are you sure you want to remove @Html.DisplayFor(model => model.Name)?</h2>
+
+@using (Html.BeginForm())
+{
+  <button class="btn" type="submit">Delete engineer</button>
+}

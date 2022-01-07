@@ -1,0 +1,46 @@
+@model Factory.Models.Engineer
+
+<h2>Engineer Details</h2>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>Start Date: @Html.DisplayFor(model => model.StartDate)</h3>
+<h3>Location: @Html.DisplayFor(model => model.Location.LocationName)</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>@Html.DisplayFor(model => model.Name) is not signed up for any repair tickes</p>
+}
+else
+{
+  <p id="engineer-details-filter">@Html.ActionLink("See completed machines only", "CompletedDetails", new { id = Model.EngineerId })</p>
+  <h4>Machines:</h4>
+  <ul id="engineer-details-li">
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li class="engineer-details-li">
+        @join.Machine.Model
+        @if (join.Complete)
+        {
+          <p id="completed">Completed</p>
+        }
+        else
+        {
+          <p id="incomplete">Incomplete</p>
+        }
+        @using (Html.BeginForm("DeleteMachine", "Engineers"))
+        {
+          @Html.Hidden("joinId", @join.EngineerMachineId)
+          <input type="submit" value="Delete" />
+        }
+        @using (Html.BeginForm("SwitchCompleted", "Engineers"))
+        {
+          @Html.Hidden("joinId", @join.EngineerMachineId)
+          <input type="submit" value="Toggle Completed">
+        }
+      </li>
+    }
+  </ul>
+}
+
+<p class="bottom-link">@Html.ActionLink("Add machine", "AddMachine", new { id = Model.EngineerId })</p>
+<p class="bottom-link">@Html.ActionLink("Edit engineer", "Edit", new { id = Model.EngineerId })</p>
+<p class="bottom-link">@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId })</p>

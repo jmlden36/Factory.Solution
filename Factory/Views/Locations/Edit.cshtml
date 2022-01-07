@@ -1,0 +1,12 @@
+@model Factory.Models.Location
+
+<h4>Edit @Html.DisplayFor(model => model.LocationName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.LocationId)
+  @Html.LabelFor(model => model.LocationName)
+  @Html.TextBoxFor(model => model.LocationName, new {@required="required"})
+
+  <input type="submit" value="Edit location" class="btn btn-default"/>
+}

@@ -1,0 +1,33 @@
+@using Factory.Models;
+@model List<Factory.Models.Engineer>
+
+
+@{
+  List<Location> locations = ViewData["locations"] as List<Location>;
+}
+
+<h1>Engineers</h1>
+
+@if (locations.Count == 0)
+{
+  <h3>You need to add a location before you can add a engineer</h3>
+}
+else
+{
+  if (@Model.Count == 0)
+  {
+    <h3>No engineers have been added yet!</h3>
+  }
+  
+  <ul>
+  @foreach (Engineer engineer in Model)
+  {
+    <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</li>
+  }
+  </ul>
+
+<p>@Html.ActionLink("Add a new engineer", "Create")</p>
+
+}
+
+<p>@Html.ActionLink("Go Back to Home Page", "Index", "Home")</p>

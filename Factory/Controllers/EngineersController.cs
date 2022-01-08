@@ -66,7 +66,7 @@ namespace Factory.Controllers
       List<Machine> machines = _db.Machines.ToList();
       ViewData.Add("machines", machines);
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
       return View(thisEngineer);
     }
 
@@ -108,6 +108,15 @@ namespace Factory.Controllers
         .ThenInclude(join => join.Machine)
         .FirstOrDefault(Engineer => Engineer.EngineerId == id);
       return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult DeleteMachine(int joinId)
+    {
+      var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachine.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = joinEntry.EngineerId });
     }
 
     public ActionResult Delete(int id)

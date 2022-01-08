@@ -11,13 +11,17 @@
 else
 {
   <h4>Machines</h4>
+  
   <ul>
     @foreach(Machine machine in Model.Machines)
     {
-      <li>@Html.ActionLink($"{@machine.Model}: {machine.Description}", "Details", "Machines", new { id = machine.MachineId })</li>
+      <li class="bottom-link">@Html.ActionLink($"{@machine.Model}", "Details", "Machines", new { id = machine.MachineId })</li>
     }
   </ul>
 }
+
+</br>
+</br>
 
 @if (@Model.Engineers.Count == 0)
 {
@@ -29,18 +33,28 @@ else
   <ul>
     @foreach (Engineer engineer in Model.Engineers)
     {
-      <li>@Html.ActionLink($"{@engineer.Name}: {engineer.StartDate}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+      <li>
+        <div class="bottom-link">
+          @Html.ActionLink($"{@engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })
+        </div>
+      </li>
     }
   </ul>
 }
 
-<p>@Html.ActionLink("Edit location", "Edit", new { id = Model.LocationId })</p>
-<p>@Html.ActionLink("Delete location", "Delete", new {id = Model.LocationId })</p>
+</br>
+</br>
 
-<div id=con>
+<p class="bottom-link">@Html.ActionLink("Edit location", "Edit", new { id = Model.LocationId })</p>
+<p class="bottom-link">@Html.ActionLink("Delete location", "Delete", new {id = Model.LocationId })</p>
+
+</br>
+</br>
+
+<div id="con">
   <div id="stats">
     <h4>Total number of engineers at the @Html.DisplayFor(model => model.LocationName) location: @Html.DisplayFor(model => model.Engineers.Count)</h4>
     <h4>Total number of machines at the @Html.DisplayFor(model => model.LocationName) location: @Html.DisplayFor(model => model.Machines.Count)</h4>
-    <h4>Total number of completed repair tickets by engineers at the @Html.DisplayFor(model => model.LocationName) location: @Html.Display("CompletedCount")</h4>
+    <h4>Total number of repair licenses held by engineers at the @Html.DisplayFor(model => model.LocationName) location: @Html.Display("CompletedCount")</h4>
   </div>
 </div>

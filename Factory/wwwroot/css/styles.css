@@ -49,7 +49,7 @@ h2 {
 }
 
 h4, h3 {
-  color: rgb(77, 92, 69);
+  color: black;
 }
 
 .bottom-link {
@@ -58,10 +58,16 @@ h4, h3 {
   margin-top: 3px;
 }
 
+.bottom-link-stack {
+  display: list-item;
+  margin-right: .75em;
+  margin-top: 3px;
+}
+
 .bottom-link a {
   background-color: white;
-  color: rgb(77, 92, 69);
-  border: .2em solid rgb(77, 92, 69);
+  color: black;
+  border: .2em solid purple;
   padding: .5em 1em;
   border-radius: .5em;
 }
@@ -164,9 +170,11 @@ nav li a:hover {
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 1em 0 2em 0;
+  text-align: center;
 }
 
 .engineer-details-li {
+  display: inline-block;
   background-color: rgb(241, 84, 202);
   color: black;
   width: 20em;

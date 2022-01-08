@@ -1,9 +1,8 @@
-# _Fitness Tracker_
+# _Dr. Sillystringz's Factory_
 
 #### By _*Matt Luker*_
-#### By _*Curtis Brooks*_
 
-#### _A website to keep track of a chain of gyms, their locations and the members and routines that belong to each location._
+#### _A website to keep track of the machines and engineers that belong to each Dr. Sillystringz Factory location._
 
 ## Technologies Used
 * C#
@@ -17,9 +16,9 @@
 * Entity Framework
 
 ## Description
-_A website where users can add gym locations, workout routines and members.  You can match members with workout routines and add routines and members to each gym location._
+_A website where users can add factory locations, machines and engineers that repair machines.  You can license engineers to be able to repair machines and add machines and engineers to each factory location._
 
-![Screenshot of database schema](/schema.png)
+![Screenshot of database schema](/schema.jpeg)
 ## System Requirements
 * _Install C# and .NET [here for Mac](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-5.0.401-macos-x64-installer)  or  [here for PC](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-5.0.401-windows-x64-installer) and follow the installation instructions_
 * A text editor, such as [VS Code](https://code.visualstudio.com/)

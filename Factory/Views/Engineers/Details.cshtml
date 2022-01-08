@@ -7,11 +7,11 @@
 
 @if (@Model.JoinEntities.Count == 0)
 {
-  <p>@Html.DisplayFor(model => model.Name) is not signed up for any repair tickes</p>
+  <p>@Html.DisplayFor(model => model.Name) is not licensed to repair any machines</p>
 }
 else
 {
-  <p id="engineer-details-filter">@Html.ActionLink("See completed machines only", "CompletedDetails", new { id = Model.EngineerId })</p>
+  <p id="engineer-details-filter">@Html.ActionLink("See only machines this engineer has a valid license for", "CompletedDetails", new { id = Model.EngineerId })</p>
   <h4>Machines:</h4>
   <ul id="engineer-details-li">
     @foreach (var join in Model.JoinEntities)
@@ -20,11 +20,11 @@ else
         @join.Machine.Model
         @if (join.Complete)
         {
-          <p id="completed">Completed</p>
+          <p id="completed">License Current</p>
         }
         else
         {
-          <p id="incomplete">Incomplete</p>
+          <p id="incomplete">License needs to be renewed</p>
         }
         @using (Html.BeginForm("DeleteMachine", "Engineers"))
         {
@@ -34,7 +34,7 @@ else
         @using (Html.BeginForm("SwitchCompleted", "Engineers"))
         {
           @Html.Hidden("joinId", @join.EngineerMachineId)
-          <input type="submit" value="Toggle Completed">
+          <input type="submit" value="Toggle License Validation">
         }
       </li>
     }

@@ -1,0 +1,24 @@
+@using Factory.Models;
+@model Factory.Models.Machine
+
+@{
+  List<Engineer> engineers = ViewData["engineers"] as List<Engineer>;
+}
+
+<h4>Assign an engineer to repair the @Html.DisplayFor(model => model.Model)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+  @if (engineers.Count == 0)
+  {
+    <h5>There are currently no engineers to assign</h5>
+  }
+  else
+  {
+  @Html.Label("select engineer")
+  @Html.DropDownList("EngineerId")
+
+  <input type="submit" value="Save">
+  }
+}

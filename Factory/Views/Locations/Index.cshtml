@@ -2,11 +2,13 @@
 @model List<Factory.Models.Location>
 
 <h1>Dr. Sillystringz's Factory Locations</h1>
+</br>
+</br>
 <ul>
     @foreach (Location location in Model)
     {
-      <li>@Html.ActionLink($"{location.LocationName}", "Details", new { id = location.LocationId })</li>
+      <li class="bottom-link">@Html.ActionLink($"{location.LocationName}", "Details", new { id = location.LocationId })</li>
     }
 </ul>
-
-<p>@Html.ActionLink("Add new factory location", "Create")</p>
+</br>
+<p class="bottom-link">@Html.ActionLink("Add new factory location", "Create")</p>

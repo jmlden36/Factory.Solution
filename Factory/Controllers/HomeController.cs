@@ -19,6 +19,8 @@ namespace Factory.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
+      List<Location> locations = _db.Locations.ToList();
+      ViewData.Add("locations", locations);
       List<Engineer> engineers = _db.Engineers.ToList();
       ViewData.Add("engineers", engineers);
       List<Machine> machines = _db.Machines.ToList();

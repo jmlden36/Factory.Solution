@@ -10,40 +10,19 @@
 }
 
 <h3>All factories stats</h3>
+</br>
 <h4>All Machines</h4>
+</br>
 @foreach (Machine machine in machines)
 {
-  <li>@Html.ActionLink($"{@machine.Model}", "Details", "Machines", new { id = machine.MachineId })</li>
+  <li class="bottom-link">@Html.ActionLink($"{@machine.Model}", "Details", "Machines", new { id = machine.MachineId })</li>
 }
-
-<h4>All Machines</h4>
+</br>
+</br>
+</br>
+<h4>All Engineers</h4>
+</br>
 @foreach (Engineer engineer in engineers)
 {
-  <li>@Html.ActionLink($"{@engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+  <li class="bottom-link">@Html.ActionLink($"{@engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
 }
-
-<h1 id="hero-heading">Factory</h1>
-<div id="hero">
-  <div class="hero-img-top-left">
-    <a href="../Machines/Index">
-      <img class="hero-img" src="~/img/machine.jpeg" />
-      <p class="hero-p shadow-lg">Machines</p>
-    </a>
-  </div>
-  <div class="hero-img-right">
-    <a id="engineer-img" href="../Engineers/Index">
-      <img class="hero-img" id="engineer-img" src="~/img/engineer.jpeg" />
-      <p class="hero-p shadow-lg">Engineers</p>
-    </a>
-  </div>
-  <div class="hero-img-bot-left">
-    <a id="location-img" href="../Locations/Index">
-      <img class="hero-img" id="locations" src="~/img/location.jpeg" />
-      <p class="hero-p shadow-lg">Locations</p>
-    </a>
-  </div>
-<div>
-
-
-
-

@@ -1,3 +1,27 @@
+@using System.Collections.Generic;
+@using Factory.Models;
+
+@{
+  List<Machine> machines = ViewData["machines"] as List<Machine>;
+}
+
+@{
+  List<Engineer> engineers = ViewData["engineers"] as List<Engineer>;
+}
+
+<h3>All factories stats</h3>
+<h4>All Machines</h4>
+@foreach (Machine machine in machines)
+{
+  <li>@Html.ActionLink($"{@machine.Model}", "Details", "Machines", new { id = machine.MachineId })</li>
+}
+
+<h4>All Machines</h4>
+@foreach (Engineer engineer in engineers)
+{
+  <li>@Html.ActionLink($"{@engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+}
+
 <h1 id="hero-heading">Factory</h1>
 <div id="hero">
   <div class="hero-img-top-left">
@@ -14,8 +38,12 @@
   </div>
   <div class="hero-img-bot-left">
     <a id="location-img" href="../Locations/Index">
-      <img class="hero-img" src="~/img/location.jpeg" />
+      <img class="hero-img" id="locations" src="~/img/location.jpeg" />
       <p class="hero-p shadow-lg">Locations</p>
     </a>
   </div>
-  <div>
+<div>
+
+
+
+

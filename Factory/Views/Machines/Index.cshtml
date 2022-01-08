@@ -1,0 +1,33 @@
+@using Factory.Models;
+@model List<Factory.Models.Machine>;
+
+
+@{
+  List<Location> locations = ViewData["locations"] as List<Location>;
+}
+
+<h1>Machines</h1>
+
+@if (locations.Count == 0)
+{
+  <h3>You need to add a location before you can add a machine</h3>
+}
+else
+{
+  if (@Model.Count == 0)
+  {
+    <h3>No machines have been added yet!</h3>
+  }
+  
+  <ul>
+    @foreach (Machine machine in Model) 
+    {
+      <li>@Html.ActionLink($"{machine.Model}", "Details", new { id = machine.MachineId })</li>
+    }
+  </ul>
+
+<p>@Html.ActionLink("Add new machine", "Create")</p>
+
+}
+
+<p>@Html.ActionLink("Go Back to Home Page", "Index", "Home")</p>

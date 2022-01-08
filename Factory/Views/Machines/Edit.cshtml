@@ -1,0 +1,19 @@
+@model Factory.Models.Machine
+
+<h4>Edit this machine: @Html.DisplayFor(model => model.Model)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+
+  @Html.LabelFor(model => model.Model)
+  @Html.EditorFor(model => model.Model)
+
+  @Html.LabelFor(model => model.Description)
+  @Html.EditorFor(model => model.Description)
+
+  @Html.Label("Select location")
+  @Html.DropDownList("LocationId")
+
+  <button class="btn" type="submit">Edit machine</button>
+}

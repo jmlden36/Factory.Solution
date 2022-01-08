@@ -1,0 +1,17 @@
+@model Factory.Models.Machine
+
+<h4>Add a new machine</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Model)
+  @Html.TextBoxFor(model => model.Model, new {@required="required"})
+
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description, new {@required="required"})
+
+  @Html.Label("Select location")
+  @Html.DropDownList("LocationId")
+
+  <button class="btn" type="submit">Add new machine</button>
+}

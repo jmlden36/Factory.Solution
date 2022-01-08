@@ -64,7 +64,7 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Location");
+      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "LocationName");
       return View();
     }
 
@@ -78,7 +78,7 @@ namespace Factory.Controllers
 
     public ActionResult Edit(int id)
     {
-      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Location");
+      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "LocationName");
       Machine thisMachine = _db.Machines.FirstOrDefault(Machine => Machine.MachineId == id);
       return View(thisMachine);
     }

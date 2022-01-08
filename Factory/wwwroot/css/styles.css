@@ -135,8 +135,9 @@ nav li a:hover {
 
 .hero-img-right {
   grid-area: right;
-  height: 80vh;
+  height: 100px;
   position: relative;
+  
 }
 
 .hero-p {
@@ -213,6 +214,11 @@ nav li a:hover {
   color:#CCC;
   background:#333;
   padding:8px;
+}
+
+#locations {
+  width: auto;
+  min-height: 100%;
 }
 
 

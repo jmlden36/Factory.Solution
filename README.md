@@ -27,9 +27,9 @@ _A website where users can add factory locations, machines and engineers that re
 ## Setup/Installation Instructions
 * Open the terminal on your desktop
 * Once in the terminal, use it to navigate to your desktop folder
-* Once inside your desktop folder, use the command `git clone https://github.com/jmlden36/HairSalon.Solution.git`
-* After cloning the project, navigate into it using the command `cd HairSalon.Solution/HairSalon`
-* Create a file named "appsettings.json" in the `HairSalon` directory
+* Once inside your desktop folder, use the command `git clone https://github.com/jmlden36/Factory.Solution.git`
+* After cloning the project, navigate into it using the command `cd Factory.Solution/Factory`
+* Create a file named "appsettings.json" in the `Factory` directory
 * Add the following code to appsettings.json and add your MySQL user ID and password:
 ```
 {
@@ -51,7 +51,7 @@ _A website where users can add factory locations, machines and engineers that re
 * Then run the command `dotnet restore` to install project dependencies
 * Then run the command `dotnet run` to run the project in the browser
 * You will then command click on localhost:5000 in the terminal to open the project in your web browser
-* Once on the webpage you can create stylists and clients and have create, read, update, and destroy functionality for both stylists and clients.
+* Once on the webpage you can create factory locations, engineers and machines and have create, read, update, and destroy functionality for locations, engineers, and machines.
 
 ## Known Bugs
 * _No known bugs_
